@@ -23,6 +23,7 @@ typedef double dl;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
+    cout.tie(NULL);
 
     int t;
     cin >> t;
@@ -37,6 +38,9 @@ int main() {
         cin >> m;
 
         while (m--) {
+            unordered_map<char, int> m_1;
+            unordered_map<int, char> m_2;
+
             string s;
             cin >> s;
 
@@ -45,13 +49,13 @@ int main() {
                 continue;
             }
 
-            unordered_map<char, int> char_map;
             bool flag = true;
-
-            for (int i = 0; i < s.length(); i++) {
-                if (char_map.find(s[i]) == char_map.end()) {
-                    char_map[s[i]] = v[i];
-                } else if (char_map[s[i]] != v[i]) {
+            for (int j = 0; j < n; j++) {
+                if (m_1.find(s[j]) == m_1.end() && m_2.find(v[j]) == m_2.end()) {
+                    m_1[s[j]] = v[j];
+                    m_2[v[j]] = s[j];
+                } else if ((m_1.find(s[j]) != m_1.end() && m_1[s[j]] != v[j]) || 
+                        (m_2.find(v[j]) != m_2.end() && m_2[v[j]] != s[j])) {
                     flag = false;
                     break;
                 }

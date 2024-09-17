@@ -28,25 +28,33 @@ int main(){
 		int t;
 		cin>>t;
 		while(t--){
-				int l,r;
-				cin>>l>>r;
+				int n;
+        cin >> n;
 
-				int totNum = r - l + 1;
+        vector<vector<char>> v(2, vector<char>(n));
 
-				if(totNum % 2 == 0){
-					int x = totNum / 2;
-					cout<<x / 2<<endl;
-				} else{
-					if(l % 2 == 0){
-						int x = totNum / 2;
-						cout<< x / 2<<endl;
-					}
-					else{
-						int x = (totNum / 2) + 1;
-						cout<< x / 2<<endl;
-					}
-				}
-				
+        forn(i, 2) {
+            forn(j, n) {
+                cin >> v[i][j];
+            }
+        }
+
+        bool f = false; 
+
+        for (int j = 0; j < n; j++) {
+            if ((v[0][j] == 'R' && (v[1][j] == 'G' || v[1][j] == 'B')) || 
+                (v[1][j] == 'R' && (v[0][j] == 'G' || v[0][j] == 'B'))) {
+                f = true;  
+                break; 
+            }
+        }
+
+        // Output result
+        if (f) {
+            cout << "NO" << endl;
+        } else {
+            cout << "YES" << endl;
+        }
 		}
 		return 0;
 }

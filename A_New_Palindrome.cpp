@@ -25,28 +25,35 @@ int main(){
 		ios::sync_with_stdio(false);
 		cin.tie(NULL);
 
-		int t;
+		int t,i;
 		cin>>t;
-		while(t--){
-				int l,r;
-				cin>>l>>r;
-
-				int totNum = r - l + 1;
-
-				if(totNum % 2 == 0){
-					int x = totNum / 2;
-					cout<<x / 2<<endl;
-				} else{
-					if(l % 2 == 0){
-						int x = totNum / 2;
-						cout<< x / 2<<endl;
-					}
-					else{
-						int x = (totNum / 2) + 1;
-						cout<< x / 2<<endl;
-					}
-				}
+		for(i=0; i<t; i++){
+				string s; cin>>s;
 				
+				map<char, int> v;
+				int j;
+				for (j = 0; j < s.length(); j++)
+				{
+					v[s[j]]++;
+				}
+
+				int f = 0;
+				
+				if(v.size() == 2){
+					for(auto &it : v){
+						if(it.se == 1){
+							cout<<"NO"<<endl;
+							f = 1;
+							break;
+						}
+					}
+					if(f == 0) cout<<"YES"<<endl;
+				}
+				else if(v.size() == 1){
+					cout<<"NO"<<endl;
+				}
+				else cout<<"YES"<<endl;
+
 		}
 		return 0;
 }

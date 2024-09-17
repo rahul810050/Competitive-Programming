@@ -28,25 +28,23 @@ int main(){
 		int t;
 		cin>>t;
 		while(t--){
-				int l,r;
-				cin>>l>>r;
+				int x, y;
+        cin >> x >> y;
 
-				int totNum = r - l + 1;
+        // If already satisfied
+        if (x >= 2 * y || y >= 2 * x) {
+            cout << 0 << endl;
+            continue;
+        }
 
-				if(totNum % 2 == 0){
-					int x = totNum / 2;
-					cout<<x / 2<<endl;
-				} else{
-					if(l % 2 == 0){
-						int x = totNum / 2;
-						cout<< x / 2<<endl;
-					}
-					else{
-						int x = (totNum / 2) + 1;
-						cout<< x / 2<<endl;
-					}
-				}
-				
+        int opp;
+        if (x > y) {
+            opp = (2 * y - x + 1) / 2;
+        } else {
+            opp = (2 * x - y + 1) / 2;
+        }
+
+        cout << opp << endl;
 		}
 		return 0;
 }

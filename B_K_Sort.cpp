@@ -28,19 +28,43 @@ int main(){
         int t;
         cin>>t;
         while(t--){
-        int n, k;
-        cin >> n >> k;  
+        ll n; cin>>n;
+        vll v(n);
+
+        for (ll i = 0; i < n; i++)
+        {
+            cin>>v[i];
+        }
+        ll k = 0;
+
+        map<ll , ll> m;
+
+        for (ll i = 1; i < n; i++)
+        {
+            if(v[i] < v[i-1]){
+                m[v[i-1] - v[i]]++;
+                k++;
+                v[i] = v[i-1];
+            }
+        }
         
+    
 
-        vi v;
+        // for(auto & it: m) k += it.se;
 
-        // if(n < k) cout<<0<<endl;
-        // else {
-            int result = (n-1 + k - 2) / (k-1);
+        ll x = 0;
+        ll ct = 0;
 
-            cout<<result<<endl;
-        // }
+        for(auto &it : m)
+        {
+            ct += (k + 1) * (it.fi - x);
+            k -= it.se;
+            x = it.fi;
+        }
 
+        
+        cout<<ct<<endl;
+        
         }
         return 0;
 }

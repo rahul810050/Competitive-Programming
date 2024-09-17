@@ -28,25 +28,28 @@ int main(){
 		int t;
 		cin>>t;
 		while(t--){
-				int l,r;
-				cin>>l>>r;
+				int n, a,b;
+				cin>>n>>a>>b;
 
-				int totNum = r - l + 1;
+				int g = __gcd(a,b);
 
-				if(totNum % 2 == 0){
-					int x = totNum / 2;
-					cout<<x / 2<<endl;
-				} else{
-					if(l % 2 == 0){
-						int x = totNum / 2;
-						cout<< x / 2<<endl;
-					}
-					else{
-						int x = (totNum / 2) + 1;
-						cout<< x / 2<<endl;
-					}
+				vi v(n);
+
+				forn(i,n){
+					cin>>v[i];
+					v[i] %= g;
+				}
+
+				sort(all(v));
+
+				int ans = v[n-1] - v[0];
+
+				for (int i = 1; i < n; i++)
+				{
+					ans = min(ans, v[i-1] + g - v[i]);
 				}
 				
+				cout<<ans<<endl;
 		}
 		return 0;
 }
