@@ -11,6 +11,8 @@
 #define all(x) (x).begin(),(x).end()
 #define allp(x) (x).begin(), (x).begin() + (x).size()/2, (x).rbegin()
 #define pb push_back
+#define ppb pop_back
+#define read(a) for(auto &i: a) cin >> i
 #define out(ans) cout<<ans<<endl
 #define yn(a) cout<< (a ? "YES": "NO") <<endl
 
@@ -28,9 +30,38 @@ int main(){
 		int t;
 		cin>>t;
 		while(t--){
-				ll k; cin>>k;
+				int n,x;
+				cin>>n>>x;
 
-				cout<<k + (int)(sqrtl(k) + 0.5)<<endl;
+				vi v(n);
+
+				read(v);
+
+				sort(all(v));
+
+				map<ll, ll> m1,m2;
+
+				for(auto &it: v) m1[it]++;
+
+				int ct = 0;
+
+				while (true)
+				{
+					if(m1[ct] > 0){
+						m1[ct]--;
+						int f = m1[ct];
+						m2[ct % x] += f;
+						ct++;
+					}
+					else if(m2[ct % x] > 0){
+						m2[ct % x]--;
+						ct++;
+					} else{
+						break;
+					}
+				}
+
+				cout<<ct<<endl;
 				
 		}
 		return 0;
