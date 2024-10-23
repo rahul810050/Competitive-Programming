@@ -2,7 +2,7 @@
 
 #include<bits/stdc++.h>
 
-#define ll long long
+#define ll long long int
 #define forn(i, n) for(int i = 0; i < n; i++)
 #define for1(i, n) for(int i = 1; i <= n; i++)
 #define foru(i, n) for(int i = n-1; i >= 0; i--)
@@ -11,6 +11,8 @@
 #define all(x) (x).begin(),(x).end()
 #define allp(x) (x).begin(), (x).begin() + (x).size()/2, (x).rbegin()
 #define pb push_back
+#define ppb pop_back
+#define read(a) for(auto &i: a) cin >> i
 #define out(ans) cout<<ans<<endl
 #define yn(a) cout<< (a ? "YES": "NO") <<endl
 
@@ -28,10 +30,22 @@ int main(){
 		int t;
 		cin>>t;
 		while(t--){
-				ll k; cin>>k;
+				ll n, k;
+				cin>>n>>k;
 
-				cout<<k + (int)(sqrtl(k) + 0.5)<<endl;
-				
+				// ll countOdds = 0;
+
+				if(n == 1 && k == 1){
+					cout<<"NO"<<endl;
+				} else{
+					
+					ll countOdds = ((n+1)/2) - ((n-k+1)/2);
+
+					// cout<<countOfLeaves<<endl;
+
+					cout<<(countOdds % 2 == 0 ? "YES": "NO")<<endl;
+					
+				}
 		}
 		return 0;
-}	
+}

@@ -11,6 +11,8 @@
 #define all(x) (x).begin(),(x).end()
 #define allp(x) (x).begin(), (x).begin() + (x).size()/2, (x).rbegin()
 #define pb push_back
+#define ppb pop_back
+#define read(a) for(auto &i: a) cin >> i
 #define out(ans) cout<<ans<<endl
 #define yn(a) cout<< (a ? "YES": "NO") <<endl
 
@@ -28,10 +30,18 @@ int main(){
 		int t;
 		cin>>t;
 		while(t--){
-				ll k; cin>>k;
+				ll a, b;
+        cin >> a >> b;
 
-				cout<<k + (int)(sqrtl(k) + 0.5)<<endl;
-				
+        if (a >= b) {
+            cout << a << endl; 
+        } else if (b > 2 * a) {
+            cout << 0 << endl; 
+        } else {
+            
+            ll mx = (2 * a - b);
+            out(mx);
+        }
 		}
 		return 0;
-}	
+}
