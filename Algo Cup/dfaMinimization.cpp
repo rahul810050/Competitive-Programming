@@ -45,7 +45,7 @@ DFA minimizeDFA(const DFA& dfa) {
                         int toState = dfa.transitions.at(state).at(symbol);
 
                         // Find partition index of toState
-                        for (size_t i = 0; i < partitions.size(); i++) {
+                        for (int i = 0; i < partitions.size(); i++) {
                             if (partitions[i].find(toState) != partitions[i].end()) {
                                 key = key * 31 + static_cast<int>(i); // Unique key per transition
                                 break;

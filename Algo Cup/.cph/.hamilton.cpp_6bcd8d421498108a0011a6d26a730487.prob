@@ -1,0 +1,1 @@
+{"name":"Local: hamilton","url":"c:\\Users\\rahul\\OneDrive\\Desktop\\CodeForces\\Algo Cup\\hamilton.cpp","tests":[{"id":1731585737331,"input":"5 6\n0 1 10\n0 2 3\n1 2 1\n1 3 2\n2 1 4\n3 4 7","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\rahul\\OneDrive\\Desktop\\CodeForces\\Algo Cup\\hamilton.cpp","group":"local","local":true}
