@@ -22,31 +22,14 @@ typedef vector<int> vi;
 typedef vector<ll> vll;
 typedef double dl;
 
-void solve(){
-        int n, k;
-        cin >> n >> k;
-        k /= 2;
-        vi a(n);
-        read(a);
-
-        if(2 * k == n){
-            for(int i = 1; i < n; i += 2){
-                if(a[i] != (i + 1) / 2){
-                    out((i + 1) / 2);
-                    return;
-                }
-            }
-            out(k + 1);
-        } else {
-            for(int i = 1; i <= n - 2 * k + 1; i++){
-                if(a[i] != 1){
-                    out(1);
-                    return;
-                }
-            }
-            out(2);
+bool isPrime(int x) {
+        if (x <= 1) return false;
+        for (int i = 2; i * i <= x; i++) {
+                if (x % i == 0) return false;
         }
+        return true;
 }
+
 
 int main(){
         ios::sync_with_stdio(false);
@@ -55,7 +38,11 @@ int main(){
         int t;
         cin >> t;
         while(t--){
-                solve();
+					int x, k;
+					cin >> x >> k;
+					if (k > 1 && x > 1) out("NO");
+					else if (k == 1) yn(isPrime(x));
+					else yn(k == 2);
         }
         return 0;
 }
