@@ -135,7 +135,7 @@ void minBitFlips(int start, int goal) {
 
 	int ct = 0;
 	for(int i = 0; i< 50; i++){
-			if(s[i] != g[i]) ct++;
+		if(s[i] != g[i]) ct++;
 	}
 	cout<<ct+1<<endl;
 	// return ct;
