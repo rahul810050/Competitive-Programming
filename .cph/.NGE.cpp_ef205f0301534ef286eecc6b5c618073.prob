@@ -1,1 +1,0 @@
-{"name":"Local: NGE","url":"c:\\Users\\rahul\\OneDrive\\Desktop\\CodeForces\\NGE.cpp","tests":[{"id":1741553655416,"input":"6\n4 5 2 25 7 8","output":"5 25 25 -1 8 -1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\rahul\\OneDrive\\Desktop\\CodeForces\\NGE.cpp","group":"local","local":true}
