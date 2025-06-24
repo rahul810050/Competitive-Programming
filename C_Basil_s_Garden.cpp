@@ -36,6 +36,8 @@ int main() {
         vi h(n);
         read(h);
 
+        // adding comments to check the aliases are working properly or not
+
         int ans = h[n - 1];
         foru(i, n - 1) {
             ans = max(ans + 1, h[i]);
