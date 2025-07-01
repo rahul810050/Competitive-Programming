@@ -21,7 +21,9 @@ int bfs(){
         lev[child_v] = lev[cur_v] + wt;
         if(wt == 0){
           q.push_front(child_v);
-        } else q.push_back(child_v);
+        } else {
+          q.push_back(child_v);
+        }
       }
     }
   }
