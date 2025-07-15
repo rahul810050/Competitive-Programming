@@ -1,48 +1,35 @@
-// coded by Cocane
-
-#include<bits/stdc++.h>
-
-#define ll long long
-#define forn(i, n) for(int i = 0; i < n; i++)
-#define for1(i, n) for(int i = 1; i <= n; i++)
-#define foru(i, n) for(int i = n-1; i >= 0; i--)
-#define fi first
-#define se second
-#define all(x) (x).begin(),(x).end()
-#define allp(x) (x).begin(), (x).begin() + (x).size()/2, (x).rbegin()
-#define pb push_back
-#define ppb pop_back
-#define read(a) for(auto &i: a) cin >> i
-#define out(ans) cout<<ans<<endl
-#define yn(a) cout<< (a ? "YES": "NO") <<endl
-
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef double dl;
+int countOccurrence(int n, string grid[], string word)
+{
+    int count = 0, len = word.length();
+    int dx[] = {0, 0, 1, -1, 1, 1, -1, -1};
+    int dy[] = {1, -1, 0, 0, 1, -1, 1, -1};
 
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            for (int dir = 0; dir < 8; dir++)
+            {
+                int k, x = i, y = j;
+                for (k = 0; k < len; k++, x += dx[dir], y += dy[dir])
+                    if (x < 0 || x >= n || y < 0 || y >= n || grid[x][y] != word[k])
+                        break;
+                if (k == len) count++;
+            }
 
-int main(){
-		ios::sync_with_stdio(false);
-		cin.tie(NULL);
+    return count;
+}
 
-		int t;
-		cin>>t;
-		while(t--){
-				int n;
-				cin>>n;
-				vi a(n);
-				read(a);
-
-				if(is_sorted(all(a))){
-					out("YES");
-					continue;
-				} else{
-					if(a[0] == 1){
-						cout<<"YES"<<endl;
-					} else cout<<"NO"<<endl;
-				}
-		}
-		return 0;
+int main()
+{
+    int n;
+    cin >> n;
+    string grid[n];
+    for (int i = 0; i < n; i++) cin >> grid[i];
+    string word;
+    cin >> word;
+    cout << countOccurrence(n, grid, word);
+    return 0;
 }
