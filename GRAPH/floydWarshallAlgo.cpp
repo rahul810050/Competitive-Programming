@@ -23,12 +23,11 @@ int main(){
   }
 
   // Floyd Warshall handles negative weighted edges but cant handle negative weighted cycle 
-
   for(int k = 1; k <= n; k++){
     for(int i = 1; i <= n; i++){
       for(int j = 1; j <= n; j++){
-        if(dist[i][k] != 1e5 && dist[k][j] != 1e5) // for negative edges
-          dist[i][j] = min(dist[i][j], (dist[i][k] + dist[k][j]));
+        if(dist[i][k] != 1e5 && dist[k][j] != 1e5)
+          dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
       }
     }
   }
